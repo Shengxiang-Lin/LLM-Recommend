@@ -1,12 +1,14 @@
-下载 ultrachat_200k
+# Dataset and Model Download   
+  
+Dataset download (ultrafeedback_binarized)   
 ```bash  
 sudo apt install git-lfs    
 git clone https://huggingface.co/datasets/HuggingFaceH4/ultrafeedback_binarized
-```   
-下载 mistralai/Mistral-7B-v0.1,新建.py文件,运行如下代码   
+```     
+Model download (Zephyr-7B-SFT-LoRA model)  
+Create a Python download script (e.g., download_zephyr_lora.py):  
 ```bash  
 from huggingface_hub import snapshot_download
-
 snapshot_download(
     repo_id="alignment-handbook/zephyr-7b-sft-lora",
     local_dir="./mistral-7b",
@@ -14,11 +16,15 @@ snapshot_download(
     revision="main",
     token="XXX",  
     force_download=True,
-    max_workers=4,  # 增加并行下载数
+    max_workers=4, 
     resume_download=True
 )
-```  
-运行结果如下
+```
+Run script download
+```bash
+python download_zephyr_lora.py 
+```
+The results are as follows   
 ```bash  
 README.md: 1.64kB [00:00, 3.96MB/s]                                                  | 0/21 [00:00<?, ?it/s]
 .gitattributes: 1.52kB [00:00, 3.99MB/s]
@@ -42,14 +48,16 @@ trainer_state.json: 53.6kB [00:00, 876kB/s]
 training_args.bin: 100%|███████████████████████████████████████████████| 4.79k/4.79k [00:00<00:00, 15.9MB/s]
 adapter_model.safetensors: 100%|████████████████████████████████████████| 83.9M/83.9M [05:19<00:00, 263kB/s]
 Fetching 21 files: 100%|████████████████████████████████████████████████████| 21/21 [05:20<00:00, 15.28s/it]
-```
-
+```    
+Foundation model (Mistral-7B-v0.1) download
 ```bash  
-# 设置镜像源（临时生效，仅当前终端有效）
+# Set mirror source (temporary effect, valid only for the current terminal)
 export HF_ENDPOINT=https://hf-mirror.com
-# 执行下载命令    
+# Execute download command
 huggingface-cli download mistralai/Mistral-7B-v0.1 --local-dir ./mistral-7b-base --local-dir-use-symlinks False
-# 运行结果如下   
+```
+The results are as follows   
+```bash  
 config.json: 571B [00:00, 1.59MB/s]                                                                         
 .gitattributes: 1.52kB [00:00, 4.25MB/s]                                                                    
 model.safetensors.index.json: 25.1kB [00:00, 39.6MB/s]                                                      
@@ -64,6 +72,10 @@ pytorch_model-00002-of-00002.bin: 100%|█████████████�
 pytorch_model-00001-of-00002.bin: 100%|██████████████████████████████| 9.94G/9.94G [2:14:20<00:00, 1.23MB/s]
 Fetching 12 files: 100%|█████████████████████████████████████████████████| 12/12 [2:14:23<00:00, 671.97s/it]
 ``` 
-
-下载完成   
-此时mistral-7b、mistral-7b-base、ultrafeedback_binarized、Fine_tune_a_SFT_model_with_direct_preference_optimization_(DPO).ipynb在同一层目录下  
+File directory structure     
+```bash
+Current working directory/
+├─ mistral-7b/                  # Zephyr-7B-SFT-LoRA model (including LoRA adapter)
+├─ mistral-7b-base/             # Mistral-7B-v0.1 Base Model
+└─ ultrafeedback_binarized/     # ultrafeedback_binarized preference dataset
+```
