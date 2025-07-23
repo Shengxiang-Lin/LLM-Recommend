@@ -1,5 +1,5 @@
-
-
+# Dataset and Model Download   
+  
 Dataset download (ultrachat_200k) 
 ```bash  
 sudo apt install git-lfs    
@@ -52,5 +52,4 @@ Current working directory/
 │  ├─ train/
 │  ├─ validation/
 │  └─ ...（Dataset metadata file）
-└─ Supervised_fine_tuning_(SFT)_of_an_LLM_using_Hugging_Face_tooling.ipynb  
 ```
