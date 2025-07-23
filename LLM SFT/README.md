@@ -14,7 +14,7 @@ snapshot_download(
     local_dir="./mistral-7b",        
     repo_type="model",          
     revision="main",          
-    token="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",          
+    token="XXX",          
     force_download=True,         
     max_workers=4,        
     resume_download=True        
