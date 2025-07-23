@@ -1,8 +1,8 @@
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
-output_dir = 'data/zephyr-7b-dpo-lora'
+output_dir = 'data/zephyr-7b-sft-lora'
 tokenizer = AutoTokenizer.from_pretrained(output_dir)
-model = AutoModelForCausalLM.from_pretrained(output_dir, load_in_4bit=True, device_map="auto", use_safetensors=False)
+model = AutoModelForCausalLM.from_pretrained(output_dir, load_in_4bit=True, device_map="auto")
 # We use the tokenizer's chat template to format each message - see https://huggingface.co/docs/transformers/main/en/chat_templating
 messages = [
     {
