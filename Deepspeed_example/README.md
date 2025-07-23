@@ -1,14 +1,24 @@
-配置 deepspeed
+# Configure Deepspeed    
 
-pip3 install deepspeed
-生成文件
+Install the accelerate and deepspeed libraries   
+```bash
+pip install accelerate   
+pip3 install deepspeed  
+```
+Generate initial configuration file
+```bash
 python -c "from accelerate.utils import write_basic_config; write_basic_config(mixed_precision='fp16')"
-查看配置
-accelerate env
-测试
+```  
+View configuration     
+```bash
+accelerate env 
+```
+Test
+```bash
 accelerate test
-
-相关配置
+```    
+Relevant content in .cache/huggingface/accelerate/default_config.yaml  
+```bash
 {
   "compute_environment": "LOCAL_MACHINE",
   "debug": false,
@@ -30,4 +40,5 @@ accelerate test
   "tpu_use_sudo": false,
   "use_cpu": false
 }
+```    
 
