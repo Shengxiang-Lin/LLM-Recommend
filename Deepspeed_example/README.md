@@ -40,5 +40,9 @@ Relevant content in .cache/huggingface/accelerate/default_config.yaml
   "tpu_use_sudo": false,
   "use_cpu": false
 }
-```    
+```
+Run demo.py   
+```bash
+python -m accelerate.commands.launch demo.py 
+```
 
