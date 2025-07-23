@@ -53,8 +53,8 @@ Current working directory/
 │  ├─ model-00002-of-00002.safetensors
 │  ├─ tokenizer.json
 │  └─ ...（Other model-related documents）
-├─ ultrachat_200k/           # ultrachat_200k dataset folder
-│  ├─ train/
-│  ├─ validation/
-│  └─ ...（Dataset metadata file）
+└─ ultrachat_200k/           # ultrachat_200k dataset folder
+   ├─ train/
+   ├─ validation/
+   └─ ...（Dataset metadata file）
 ```
