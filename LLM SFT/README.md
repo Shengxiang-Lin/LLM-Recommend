@@ -5,7 +5,8 @@ Dataset download (ultrachat_200k)
 sudo apt install git-lfs    
 git clone https://huggingface.co/datasets/HuggingFaceH4/ultrachat_200k
 ```   
-Model download (Mistral-7B-v0.1) 
+Model download (Mistral-7B-v0.1)   
+Create a Python script (e.g., download_mistral.py) with the following content     
 ```bash  
 from huggingface_hub import snapshot_download    
 snapshot_download(        
@@ -18,7 +19,11 @@ snapshot_download(
     max_workers=4,        
     resume_download=True        
 )
-```  
+```
+Run script download   
+```bash
+python download_mistral.py
+```     
 The results are as follows  
 ```bash  
 .gitattributes: 100%|██████████████████████████████████████████████████| 1.52k/1.52k [00:00<00:00, 7.37MB/s]
