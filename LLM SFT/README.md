@@ -1,9 +1,11 @@
-下载 ultrachat_200k
+
+
+Dataset download (ultrachat_200k) 
 ```bash  
 sudo apt install git-lfs    
 git clone https://huggingface.co/datasets/HuggingFaceH4/ultrachat_200k
 ```   
-下载 mistralai/Mistral-7B-v0.1,新建.py文件,运行如下代码   
+Model download (Mistral-7B-v0.1) 
 ```bash  
 from huggingface_hub import snapshot_download    
 snapshot_download(        
@@ -17,7 +19,7 @@ snapshot_download(
     resume_download=True        
 )
 ```  
-运行结果如下
+The results are as follows  
 ```bash  
 .gitattributes: 100%|██████████████████████████████████████████████████| 1.52k/1.52k [00:00<00:00, 7.37MB/s]
 README.md: 100%|███████████████████████████████████████████████████████| 1.55k/1.55k [00:00<00:00, 8.33MB/s]
@@ -35,5 +37,20 @@ pytorch_model-00001-of-00002.bin: 100%|█████████████�
 model-00001-of-00002.safetensors: 100%|████████████████████████████████| 9.94G/9.94G [52:53<00:00, 3.13MB/s]
 Fetching 14 files: 100%|███████████████████████████████████████████████████| 14/14 [52:55<00:00, 226.80s/it]
 ```
-下载完成   
-此时mistral-7b、ultrachat_200、Supervised_fine_tuning_(SFT)_of_an_LLM_using_Hugging_Face_tooling.ipynb在同一层目录下  
+File directory structure  
+```bash
+Current working directory/
+├─ mistral-7b/               # Mistral-7B-v0.1 model folder
+│  ├─ config.json
+│  ├─ pytorch_model-00001-of-00002.bin
+│  ├─ pytorch_model-00002-of-00002.bin
+│  ├─ model-00001-of-00002.safetensors
+│  ├─ model-00002-of-00002.safetensors
+│  ├─ tokenizer.json
+│  └─ ...（Other model-related documents）
+├─ ultrachat_200k/           # ultrachat_200k dataset folder
+│  ├─ train/
+│  ├─ validation/
+│  └─ ...（Dataset metadata file）
+└─ Supervised_fine_tuning_(SFT)_of_an_LLM_using_Hugging_Face_tooling.ipynb  
+```
